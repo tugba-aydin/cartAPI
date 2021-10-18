@@ -24,6 +24,7 @@ namespace cartAPI.Controllers
         {
             var products = repository.GetAll();
             return Ok(products);
+
         }
 
         [HttpGet]

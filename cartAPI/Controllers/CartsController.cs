@@ -37,9 +37,13 @@ namespace cartAPI.Controllers
         [Route("add")]
         public ActionResult Add([FromBody] Cart cart)
         {
-            repository.Add(cart);
-            repository.SaveAll();
-            return Ok(cart);
+            if (cart!=null)
+            {
+                repository.Add(cart);
+                repository.SaveAll();
+                return Ok(cart);
+            }
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
